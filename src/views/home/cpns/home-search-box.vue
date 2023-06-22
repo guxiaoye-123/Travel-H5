@@ -131,25 +131,25 @@ const searchBtnClick = () => {
   .location {
     display: flex;
     align-items: center;
-    height: 2.75rem;
-    padding: 0 1.25rem;
+    height: 44px;
+    padding: 0 20px;
     .city {
       flex: 1;
       color: #333;
-      font-size: 15px;
+      font-size: .9375rem;
     }
     .position {
-      width: 4.625rem;
+      width: 74px;
       .text {
         position: relative;
-        top: 1px;
+        top: .0625rem;
         color: #666;
-        font-size: 12px;
+        font-size: .75rem;
       }
       img {
-        margin-left: 0.3125rem;
-        width: 1.125rem;
-        height: 1.125rem;
+        margin-left: 5px;
+        width: 18px;
+        height: 18px;
       }
     }
   }
@@ -157,21 +157,21 @@ const searchBtnClick = () => {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 1.25rem;
     color: #999;
-    height: 2.75rem;
+    height: 44px;
   }
 
   .start {
     flex: 1;
     display: flex;
-    height: 2.75rem;
+    height: 44px;
     align-items: center;
   }
 
   .end {
     min-width: 30%;
-    margin-left: 2.5rem;
+    margin-left: 40px;
   }
 
   .date {
@@ -179,53 +179,53 @@ const searchBtnClick = () => {
     flex-direction: column;
 
     .tip {
-      font-size: 12px;
+      font-size: .75rem;
       color: #999;
     }
 
     .time {
-      margin-top: 3px;
+      margin-top: .1875rem;
       color: #333;
-      font-size: 15px;
+      font-size: .9375rem;
       font-weight: 500;
     }
   }
 
   .date-range {
-    height: 44px;
+    height: 2.75rem;
     .stay {
       flex: 1;
       text-align: center;
-      font-size: 12px;
+      font-size: .75rem;
       color: #666;
     }
   }
   .price-counter {
     .start {
-      border-right: 1px solid var(--line-color);
+      border-right: .0625rem solid var(--line-color);
     }
   }
   .hot-suggests {
-    margin: 10px 0;
+    margin: .625rem 0;
     height: auto;
 
     .item {
-      padding: 4px 8px;
-      margin: 4px;
-      border-radius: 14px;
-      font-size: 12px;
+      padding: .25rem .5rem;
+      margin: .25rem;
+      border-radius: .875rem;
+      font-size: .75rem;
     }
   }
   .search-btn {
     .btn {
-      width: 342px;
-      height: 38px;
-      max-height: 50px;
+      width: 21.375rem;
+      height: 2.375rem;
+      max-height: 3.125rem;
       font-weight: 500;
-      font-size: 18px;
-      line-height: 38px;
+      font-size: 1.125rem;
+      line-height: 2.375rem;
       text-align: center;
-      border-radius: 20px;
+      border-radius: 1.25rem;
       color: #fff;
       background-image: var(--theme-linear-gradient);
     }

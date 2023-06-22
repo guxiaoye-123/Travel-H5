@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+   
     <home-nav-bar />
     <!-- banner图 -->
     <div class="banner">
@@ -8,9 +9,13 @@
     <!-- 定位 -->
     <home-search-box />
     <home-categories />
+    
     <!-- 内容 -->
     <home-content />
     <!-- 下拉搜索框显示 -->
+    <div class="search-bar" v-if="isShowSearchBar">
+      <van-search v-model="value" placeholder="请输入搜索关键词" />
+    </div>
   </div>
 </template>
 
@@ -49,7 +54,7 @@ if(newValue) {
 // })
 
 const isShowSearchBar = computed(() => {
-  return scrollTop.value >= 100
+  return scrollTop.value >= 450
 })
 </script>
 <style scoped lang='less'>
@@ -59,6 +64,17 @@ const isShowSearchBar = computed(() => {
     img {
       width: 100%;
     }
+  }
+
+  .search-bar {
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2.8125rem;
+    padding: 1rem 1rem .625rem;
+    background-color: #fff;
   }
 }
 </style>

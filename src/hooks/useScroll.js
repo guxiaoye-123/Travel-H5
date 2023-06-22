@@ -24,7 +24,7 @@ export default function useScroll() {
     })
 
     onUnmounted(() => {
-        window.addEventListener("scroll", scrollListenerhandler)
+        window.removeEventListener("scroll", scrollListenerhandler)
     })
 
     return { isReachBottom, scrollHeight, scrollTop, clientHeight }
