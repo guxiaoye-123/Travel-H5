@@ -4,6 +4,7 @@
     "module": "esnext",
     "baseUrl": "./",
     "moduleResolution": "node",
+    "jsx": "preserve",
     "paths": {
       "@/*": [
         "src/*"
@@ -17,6 +18,6 @@
     ]
   },
   "vueCompilerOptions": {
-    "experimentalDisableTemplateSupport": true
+    "experimentalDisableTemplateSupport": false
   }
 }

@@ -13,14 +13,14 @@
       <div class="start">
         <div class="date">
           <span class="tip">入住</span>
-          <span class="time">{{ startDate }}</span>
+          <span class="time">{{ startDateStr }}</span>
         </div>
       </div>
       <div class="stay">共 {{ stayCount }} 晚</div>
       <div class="end">
         <div class="date">
           <span class="tip">离店</span>
-          <span class="time">{{ endDate }}</span>
+          <span class="time">{{ endDateStr }}</span>
         </div>
       </div>
     </div>
@@ -64,9 +64,10 @@
 import useCityStore from "@/stores/modules/city";
 import useHomeStore from "@/stores/modules/home";
 import { storeToRefs } from "pinia";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import { formatMonthDay, getDiffDays } from "@/utils/foemat_date";
+import useMainStore from "@/stores/modules/main";
 const router = useRouter();
 
 const cityClick = () => {
@@ -88,23 +89,22 @@ const positionClick = () => {
 const cityStore = useCityStore();
 
 const { currentCity } = storeToRefs(cityStore);
-
 // 日期时间处理
-const nowDate = new Date();
-const startDate = ref(formatMonthDay(new Date()));
-const newDate = new Date();
-newDate.setDate(nowDate.getDate() + 1);
-const endDate = ref(formatMonthDay(newDate));
+const mainStore = useMainStore()
+
+const { startDate, endDate } = storeToRefs(mainStore)
+const startDateStr= computed(() => formatMonthDay(startDate.value));
+const endDateStr = computed(() => formatMonthDay(endDate.value));
 
 // 日历组件处理
 const showCalendar = ref(false);
-const stayCount = ref(getDiffDays(nowDate, newDate));
+const stayCount = ref(getDiffDays(startDate.value, endDate.value));
 const onConfirm = (value) => {
   // 设置日期
   const selectStartDate = value[0];
   const selectEndDate = value[1];
-  startDate.value = formatMonthDay(selectStartDate);
-  endDate.value = formatMonthDay(selectEndDate);
+  mainStore.startDate = selectStartDate
+  mainStore.endDate = selectEndDate
   stayCount.value = getDiffDays(selectStartDate, selectEndDate);
   showCalendar.value = false;
 };

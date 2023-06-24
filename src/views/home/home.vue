@@ -14,7 +14,7 @@
     <home-content />
     <!-- 下拉搜索框显示 -->
     <div class="search-bar" v-if="isShowSearchBar">
-      <van-search v-model="value" placeholder="请输入搜索关键词" />
+      <search-bar :start-date="'09.19'" :end-date="'09.20'"/>
     </div>
   </div>
 </template>
@@ -25,6 +25,7 @@ import HomeNavBar from "./cpns/home-nav-bar.vue";
 import HomeSearchBox from "./cpns/home-search-box.vue";
 import HomeCategories from "./cpns/home-categories.vue"
 import homeContent from "./cpns/home-content.vue";
+import searchBar from "@/components/search-bar/search-bar.vue";
 import useScroll from "@/hooks/useScroll"
 import { computed, watch } from "vue";
 const homeStore = useHomeStore()
