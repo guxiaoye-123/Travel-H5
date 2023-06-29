@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" ref="homeRef">
    
     <home-nav-bar />
     <!-- banner图 -->
@@ -27,7 +27,7 @@ import HomeCategories from "./cpns/home-categories.vue"
 import homeContent from "./cpns/home-content.vue";
 import searchBar from "@/components/search-bar/search-bar.vue";
 import useScroll from "@/hooks/useScroll"
-import { computed, watch } from "vue";
+import { computed, watch, ref, onActivated } from "vue";
 const homeStore = useHomeStore()
 homeStore.fetchHostSuggestData()
 homeStore.fetchCategoriesData()
@@ -36,8 +36,9 @@ homeStore.fetchHouselistData()
 
 
 // 滚动
+const homeRef = ref()
 
-const { isReachBottom, scrollTop } = useScroll()
+const { isReachBottom, scrollTop } = useScroll(homeRef)
 
 watch(isReachBottom, (newValue)=>{
 if(newValue) {
@@ -57,9 +58,19 @@ if(newValue) {
 const isShowSearchBar = computed(() => {
   return scrollTop.value >= 450
 })
+
+// 跳转home时，返回原来的位置
+// onActivated(()=> {
+//   homeRef.value?.scrollTo({
+//     top:scrollTop.value
+//   })
+// })
 </script>
 <style scoped lang='less'>
 .home {
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
   padding-bottom: 3.75rem;
   .banner {
     img {

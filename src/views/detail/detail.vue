@@ -113,15 +113,15 @@ const tabClick = (index) => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 120px;
+  height: 7.5rem;
 
   img {
-    width: 123px;
+    width: 7.6875rem;
   }
 
   .text {
-    margin-top: 12px;
-    font-size: 12px;
+    margin-top: .75rem;
+    font-size: .75rem;
     color: #7688a7;
   }
 }
